@@ -4,12 +4,12 @@ import grpc
 
 from grpc_reflection.v1alpha import reflection
 
-from api.todos_service import TodosService
-from infrastructure.grpc import todos_pb2, todos_pb2_grpc
-from infrastructure.mediator.mediator import Mediator
+from features.todos.api import TodosService
+from foundations.grpc import todos_pb2, todos_pb2_grpc
+from foundations.mediator.mediator import Mediator
 
 
-class TodosServer():
+class TodosServer:
     def __init__(self, mediator: Mediator, port=50051):
         self._server = None
         self._mediator = mediator

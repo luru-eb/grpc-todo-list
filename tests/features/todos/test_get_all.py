@@ -2,14 +2,14 @@ import grpc
 import pytest
 from injector import Injector
 
-from api.todos_server import TodosServer
-from modules.create_todo_module import CreateTodoModule
-from modules.delete_todo_module import DeleteTodoModule
-from modules.getall_todos_module import GetAllTodosModule
-from modules.update_todo_module import UpdateTodoModule
-from infrastructure.grpc import todos_pb2_grpc
-from infrastructure.grpc.todos_pb2 import Empty
-from infrastructure.mediator.mediator import Mediator
+from features.todos.create import CreateTodoModule
+from features.todos.delete import DeleteTodoModule
+from features.todos.get_all import GetAllTodosModule
+from features.todos.update import UpdateTodoModule
+from todos_server import TodosServer
+from foundations.grpc import todos_pb2_grpc
+from foundations.grpc.todos_pb2 import Empty
+from foundations.mediator.mediator import Mediator
 from models.models import Todo
 
 server = None

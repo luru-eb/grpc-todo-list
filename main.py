@@ -4,9 +4,6 @@ import os
 import django
 from injector import Injector
 
-from api.todos_server import TodosServer
-from infrastructure.mediator.mediator import Mediator
-
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
     django.setup()
@@ -16,10 +13,12 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     logging.log(logging.INFO, 'Starting todos application...')
 
-    from modules.create_todo_module import CreateTodoModule
-    from modules.getall_todos_module import GetAllTodosModule
-    from modules.update_todo_module import UpdateTodoModule
-    from modules.delete_todo_module import DeleteTodoModule
+    from todos_server import TodosServer
+    from foundations.mediator.mediator import Mediator
+    from features.todos.create import CreateTodoModule
+    from features.todos.delete import DeleteTodoModule
+    from features.todos.get_all import GetAllTodosModule
+    from features.todos.update import UpdateTodoModule
 
     container = Injector([
         CreateTodoModule(),

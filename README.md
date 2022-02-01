@@ -12,7 +12,7 @@ The first problem with this approach/architecture is you start to get many [abst
 
 If we're using directly Django ORM in our use case handlers we won't be able to have unit test for them, but we can have integration test, which allows us to avoid mock-heavy dependencies and also to test E2E our systems. With the arrival of the containers, we can run anything in them, which makes them very ideal for faster integration testing, so one difference between vertical slices architecture and clean architecture is that the last one does not use indirections.
 
-In the main branch, we are using a clean architecture approach, which uses abstractions in their use case handlers, such us TodosRepositoryInterface:
+In the [clean-architecture branch](https://github.com/luru-eb/grpc-todo-list/tree/clean-architecture), we are using a clean architecture approach, which uses abstractions in their use case handlers, such us TodosRepositoryInterface:
 
 ```python
 class CreateTodoHandler(Handler[CreateTodoCommand]):
@@ -30,8 +30,8 @@ Adding this abstraction over Django ORM we are adding more indirection layers, a
 ```python
 class CreateTodoHandler(Handler[CreateTodoCommand]):
     def __call__(self, command: CreateTodoCommand, *args, **kwargs):
-        todo = Todo(description=command.description,)
-        todo.save(todo)
+        todo = Todo(description=command.description, )
+        todo.save()
         return todo
 ```
 
