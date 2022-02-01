@@ -8,7 +8,7 @@ In the main branch, we are using a clean architecture approach, which uses abstr
 
 ```python
 class CreateTodoHandler(Handler[CreateTodoCommand]):
-    def __init__(self, repository: TodosRepository):
+    def __init__(self, repository: TodosRepositoryInterface):
         self._repository = repository
 
     def __call__(self, command: CreateTodoCommand, *args, **kwargs):
