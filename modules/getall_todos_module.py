@@ -3,8 +3,8 @@ from injector import Module, provider
 from application.ports.todos_repository import TodosRepositoryInterface
 from application.queries.getall_todos_query import GetAllTodosQuery
 from application.handlers.getall_todos_handler import GetAllTodosHandler
-from foundation.mediator.mediator import Handler
-from foundation.repositories.todos_repository import TodosRepository
+from infrastructure.mediator.mediator import Handler
+from infrastructure.repositories.todos_repository import TodosRepository
 
 
 class GetAllTodosModule(Module):

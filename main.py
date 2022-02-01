@@ -5,7 +5,7 @@ import django
 from injector import Injector
 
 from api.todos_server import TodosServer
-from foundation.mediator.mediator import Mediator
+from infrastructure.mediator.mediator import Mediator
 
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')

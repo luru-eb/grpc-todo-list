@@ -5,9 +5,9 @@ from application.commands.create_todo_command import CreateTodoCommand
 from application.commands.delete_todo_command import DeleteTodoCommand
 from application.queries.getall_todos_query import GetAllTodosQuery
 from application.commands.update_todo_command import UpdateTodoCommand
-from foundation.grpc import todos_pb2_grpc
-from foundation.grpc.todos_pb2 import Todo, TodoList, Empty
-from foundation.mediator.mediator import Mediator
+from infrastructure.grpc import todos_pb2_grpc
+from infrastructure.grpc.todos_pb2 import Todo, TodoList, Empty
+from infrastructure.mediator.mediator import Mediator
 
 
 class TodosService(todos_pb2_grpc.TodosServicer):

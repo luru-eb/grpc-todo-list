@@ -1,6 +1,6 @@
 from application.commands.delete_todo_command import DeleteTodoCommand
 from application.ports.todos_repository import TodosRepositoryInterface
-from foundation.mediator.mediator import Handler
+from infrastructure.mediator.mediator import Handler
 from models.models import Todo
 
 

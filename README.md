@@ -4,6 +4,14 @@ Before digging into the source code, please read this [blog post](https://jimmyb
 
 ## Layered/onion/clean architectures pain points
 
+There are two problems with layered/onion/clean architectures:
+
+### Mock-heavy and regid rules around dependency management
+
+The first problem with this approach/architecture is you start to get many [abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) around concepts that are really abstracted. For example, using a repository pattern to abstract Django ORM. Django ORM is already a repository pattern, it has already given you a persistence ignorance since you can change the underlying database implementation.
+
+If we're using directly Django ORM in our use case handlers we won't be able to have unit test for them, but we can have integration test, which allows us to avoid mock-heavy dependencies and also to test E2E our systems. With the arrival of the containers, we can run anything in them, which makes them very ideal for faster integration testing, so one difference between vertical slices architecture and clean architecture is that the last one does not use indirections.
+
 In the main branch, we are using a clean architecture approach, which uses abstractions in their use case handlers, such us TodosRepositoryInterface:
 
 ```python
@@ -17,11 +25,19 @@ class CreateTodoHandler(Handler[CreateTodoCommand]):
         return todo
 ```
 
-The problem with this approach/architecture is you start to get many [abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) around concepts that are really abstracted. For example, using a repository pattern to abstract Django ORM. Django ORM is already a repository pattern, it has already given you a persistence ignorance since you can change the underlying database implementation.
+Adding this abstraction over Django ORM we are adding more indirection layers, and thus we are over-architecting our application. Why not using the Django ORM directly?
 
-If we're using directly Django ORM in our use case handlers we won't be able to have unit test for them, but we can have integration test, which allows us to avoid mock-heavy dependencies and also to test E2E our systems. With the arrival of the containers, we can run anything in them, which makes them very ideal for faster integration testing, so one difference between vertical slices architecture and clean architecture is that the last one does not use indirections.
+```python
+class CreateTodoHandler(Handler[CreateTodoCommand]):
+    def __call__(self, command: CreateTodoCommand, *args, **kwargs):
+        todo = Todo(description=command.description,)
+        todo.save(todo)
+        return todo
+```
 
-Another problem is when you are adding or changing a feature in your application, because you are typically changing many layers, which means an increase of the cognitive load for the developer.
+### Cognitive Load
+
+The other problem is when you are adding or changing a feature in your application, because you are typically changing many layers, which means an increase of the cognitive load for the developer.
 
 In this case the complexity is also caused by a lack of code organisation (Vertical slices forces us to have a clean code organisation), focusing in technical details (handlers, commands, queries, repositories, etc.) rather than features and capabilities.
 

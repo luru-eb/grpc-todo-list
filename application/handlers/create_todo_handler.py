@@ -1,6 +1,6 @@
 from application.commands.create_todo_command import CreateTodoCommand
 from application.ports.todos_repository import TodosRepositoryInterface
-from foundation.mediator.mediator import Handler
+from infrastructure.mediator.mediator import Handler
 from models.models import Todo
 
 
