@@ -3,9 +3,9 @@ import pytest
 from injector import Injector
 
 from api.todos_server import TodosServer
-from modules import CreateTodoModule
-from modules import DeleteTodoModule
-from modules import GetAllTodosModule
+from modules.create_todo_module import CreateTodoModule
+from modules.delete_todo_module import DeleteTodoModule
+from modules.getall_todos_module import GetAllTodosModule
 from modules.update_todo_module import UpdateTodoModule
 from foundation.grpc import todos_pb2_grpc
 from foundation.grpc.todos_pb2 import Empty
