@@ -6,7 +6,7 @@ Before digging into the source code, please read this [blog post](https://jimmyb
 
 There are two problems with layered/onion/clean architectures:
 
-### Mock-heavy and regid rules around dependency management
+### Mock-heavy and rigid rules around dependency management
 
 The first problem with this approach/architecture is you start to get many [abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) around concepts that are really abstracted. For example, using a repository pattern to abstract Django ORM. Django ORM is already a repository pattern, it has already given you a persistence ignorance since you can change the underlying database implementation.
 
@@ -49,7 +49,7 @@ In this case, when someone new to a project and does not yet familiar with the c
 
 ## The solution
 
-In the vertical branch you can show how I refactor the current approach to a vertical slices architecture
+In the main branch you can see how the [clean-architecture branch](https://github.com/luru-eb/grpc-todo-list/tree/clean-architecture) has been refactoring to a vertical slices architecture. 
 
 
 
