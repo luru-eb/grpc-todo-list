@@ -1,11 +1,10 @@
+from application.ports.todos_repository import TodosRepositoryInterface
 from application.queries.getall_todos_query import GetAllTodosQuery
 from foundation.mediator.mediator import Handler
-from foundation.repositories.todos_repository import TodosRepository
-from models.models import Todo
 
 
 class GetAllTodosHandler(Handler[GetAllTodosQuery]):
-    def __init__(self, repository: TodosRepository):
+    def __init__(self, repository: TodosRepositoryInterface):
         self._repository = repository
 
     def __call__(self, command: GetAllTodosQuery, *args, **kwargs):
