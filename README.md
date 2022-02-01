@@ -23,7 +23,7 @@ If we're using directly Django ORM in our use case handlers we won't be able to 
 
 Another problem is when you are adding or changing a feature in your application, because you are typically changing many layers, which means an increase of the cognitive load for the developer.
 
-
+In this case the complexity is also caused by a lack of code organisation (Vertical slices forces us to have a clean code organisation), focusing in technical details (handlers, commands, queries, repositories, etc.) rather than features and capabilities.
 
 ## The goal os using Vertical slices
 
