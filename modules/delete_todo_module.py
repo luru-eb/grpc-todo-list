@@ -13,5 +13,5 @@ class DeleteTodoModule(Module):
         return TodosRepository()
 
     @provider
-    def create_handler(self) -> Handler[DeleteTodoCommand]:
-        return DeleteTodoHandler(TodosRepository())
+    def create_handler(self, repository: TodosRepositoryInterface) -> Handler[DeleteTodoCommand]:
+        return DeleteTodoHandler(repository=repository)

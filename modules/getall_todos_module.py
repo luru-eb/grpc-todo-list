@@ -13,5 +13,5 @@ class GetAllTodosModule(Module):
         return TodosRepository()
 
     @provider
-    def create_handler(self) -> Handler[GetAllTodosQuery]:
-        return GetAllTodosHandler(TodosRepository())
+    def create_handler(self, repository: TodosRepositoryInterface) -> Handler[GetAllTodosQuery]:
+        return GetAllTodosHandler(repository=repository)

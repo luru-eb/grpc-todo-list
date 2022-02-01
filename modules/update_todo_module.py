@@ -13,5 +13,5 @@ class UpdateTodoModule(Module):
         return TodosRepository()
 
     @provider
-    def create_handler(self) -> Handler[UpdateTodoCommand]:
-        return UpdateTodoHandler(TodosRepository())
+    def create_handler(self, repository: TodosRepositoryInterface) -> Handler[UpdateTodoCommand]:
+        return UpdateTodoHandler(repository=repository)
