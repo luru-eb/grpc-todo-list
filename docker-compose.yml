@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "50051:50051"
+    environment:
+      - APP_PORT=50051
+      - DB_HOST=db
+      - DB_USER=grpc-demo-user
+      - DB_PASSWORD=grpc-demo-project-pass
+      - DB_NAME=todos
+    depends_on:
+      - db
+    command: supervisord -n -c /usr/src/app/docker/supervisord.conf
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: grpc-demo-project-pass
+      POSTGRES_USER: grpc-demo-user
+      POSTGRES_DB: todos

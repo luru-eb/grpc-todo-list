@@ -27,6 +27,6 @@ if __name__ == '__main__':
         DeleteTodoModule()
     ], auto_bind=False)
     mediator = Mediator(container)
-    server = TodosServer(mediator, 50051)
+    server = TodosServer(mediator, os.getenv('APP_PORT', '50051'))
     server.start()
     server.wait()
