@@ -4,9 +4,9 @@ from injector import inject
 from features.todos.create import CreateTodoCommand
 from features.todos.delete import DeleteTodoCommand
 from features.todos.get_all import GetAllTodosQuery
+from features.todos.grpc.todos_pb2 import Todo, TodoList, Empty
 from features.todos.update import UpdateTodoCommand
-from foundations.grpc import todos_pb2_grpc
-from foundations.grpc.todos_pb2 import Todo, TodoList, Empty
+from features.todos.grpc import todos_pb2_grpc
 from foundations.mediator.mediator import Mediator
 
 

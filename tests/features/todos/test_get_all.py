@@ -5,10 +5,10 @@ from injector import Injector
 from features.todos.create import CreateTodoModule
 from features.todos.delete import DeleteTodoModule
 from features.todos.get_all import GetAllTodosModule
+from features.todos.grpc.todos_pb2 import Empty
 from features.todos.update import UpdateTodoModule
 from todos_server import TodosServer
-from foundations.grpc import todos_pb2_grpc
-from foundations.grpc.todos_pb2 import Empty
+from features.todos.grpc import todos_pb2_grpc
 from foundations.mediator.mediator import Mediator
 from models.models import Todo
 

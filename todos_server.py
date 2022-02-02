@@ -5,7 +5,8 @@ import grpc
 from grpc_reflection.v1alpha import reflection
 
 from features.todos.api import TodosService
-from foundations.grpc import todos_pb2, todos_pb2_grpc
+from features.todos.grpc import todos_pb2_grpc
+from features.todos.grpc import todos_pb2
 from foundations.mediator.mediator import Mediator
 
 
