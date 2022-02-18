@@ -3,15 +3,15 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 INSTALLED_APPS = (
-    'models',
+    'features.todos',
 )
 
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.getenv('DB_NAME', 'todos'),
-            'USER': os.getenv('DB_USER', 'postgres'),
-            'PASSWORD': os.getenv('DB_PASSWORD', 'mysecretpassword'),
+            'USER': os.getenv('DB_USER', 'grpc-demo-user'),
+            'PASSWORD': os.getenv('DB_PASSWORD', 'grpc-demo-project-pass'),
             'HOST': os.getenv('DB_HOST', 'localhost'),
             'PORT': os.getenv('DB_PORT', '5432'),
         }

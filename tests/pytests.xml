@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="5.635" timestamp="2022-02-01T05:04:44.473152" hostname="luru-15033"><testcase classname="tests.api.test_todo_service" name="test_should_return_all_todos" time="5.495" /></testsuite></testsuites>

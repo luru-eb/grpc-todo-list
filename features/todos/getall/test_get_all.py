@@ -2,15 +2,15 @@ import grpc
 import pytest
 from injector import Injector
 
-from features.todos.create import CreateTodoModule
-from features.todos.delete import DeleteTodoModule
-from features.todos.get_all import GetAllTodosModule
-from features.todos.grpc.todos_pb2 import Empty
-from features.todos.update import UpdateTodoModule
-from todos_server import TodosServer
-from features.todos.grpc import todos_pb2_grpc
+from features.todos.create.create import CreateTodoModule
+from features.todos.delete.delete import DeleteTodoModule
+from features.todos.getall.get_all import GetAllTodosModule
+from features.todos.update.update import UpdateTodoModule
+from features.todos.todos_pb2 import Empty
+from features.todos.todos_server import TodosServer
+from features.todos import todos_pb2_grpc
 from foundations.mediator.mediator import Mediator
-from models.models import Todo
+from features.todos.models import Todo
 
 server = None
 port = 50052

@@ -9,16 +9,16 @@ if __name__ == '__main__':
     django.setup()
     from django.core.management import call_command
 
-    call_command('migrate', 'models')
+    call_command('migrate', 'todos')
     logging.basicConfig(level=logging.DEBUG)
     logging.log(logging.INFO, 'Starting todos application...')
 
-    from todos_server import TodosServer
+    from features.todos.todos_server import TodosServer
     from foundations.mediator.mediator import Mediator
-    from features.todos.create import CreateTodoModule
-    from features.todos.delete import DeleteTodoModule
-    from features.todos.get_all import GetAllTodosModule
-    from features.todos.update import UpdateTodoModule
+    from features.todos.create.create import CreateTodoModule
+    from features.todos.delete.delete import DeleteTodoModule
+    from features.todos.getall.get_all import GetAllTodosModule
+    from features.todos.update.update import UpdateTodoModule
 
     container = Injector([
         CreateTodoModule(),

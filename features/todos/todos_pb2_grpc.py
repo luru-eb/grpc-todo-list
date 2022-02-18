@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from . import todos_pb2 as todos__pb2
+from features.todos import todos_pb2 as todos__pb2
 
 
 class TodosStub(object):
