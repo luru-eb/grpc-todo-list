@@ -8,9 +8,9 @@ class DeleteTodoHandler(Handler[DeleteTodoCommand]):
     def __init__(self, repository: TodosRepositoryInterface):
         self._repository = repository
 
-    def __call__(self, command: DeleteTodoCommand, *args, **kwargs):
+    def __call__(self, request: DeleteTodoCommand, *args, **kwargs):
         try:
-            todo = self._repository.get_by(command.id)
+            todo = self._repository.get_by(request.id)
             self._repository.remove(todo)
             return todo
         except Todo.DoesNotExist:

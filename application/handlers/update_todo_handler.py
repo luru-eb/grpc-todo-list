@@ -8,11 +8,11 @@ class UpdateTodoHandler(Handler[UpdateTodoCommand]):
     def __init__(self, repository: TodosRepositoryInterface):
         self._repository = repository
 
-    def __call__(self, command: UpdateTodoCommand, *args, **kwargs):
+    def __call__(self, request: UpdateTodoCommand, *args, **kwargs):
         try:
-            todo = self._repository.get_by(command.id)
-            todo.description = command.description
-            if command.is_done:
+            todo = self._repository.get_by(request.id)
+            todo.description = request.description
+            if request.is_done:
                 todo.done()
             self._repository.save(todo)
             return todo

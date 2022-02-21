@@ -7,5 +7,5 @@ class GetAllTodosHandler(Handler[GetAllTodosQuery]):
     def __init__(self, repository: TodosRepositoryInterface):
         self._repository = repository
 
-    def __call__(self, command: GetAllTodosQuery, *args, **kwargs):
+    def __call__(self, request: GetAllTodosQuery, *args, **kwargs):
         return self._repository.get_all()

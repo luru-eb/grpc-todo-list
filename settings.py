@@ -10,8 +10,8 @@ DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'todos',
-            'USER': 'postgres',
-            'PASSWORD': 'mysecretpassword',
+            'USER': 'grpc-demo-user',
+            'PASSWORD': 'grpc-demo-project-pass',
             'HOST': 'localhost',
             'PORT': '5432',
         }

@@ -8,7 +8,7 @@ class CreateTodoHandler(Handler[CreateTodoCommand]):
     def __init__(self, repository: TodosRepositoryInterface):
         self._repository = repository
 
-    def __call__(self, command: CreateTodoCommand, *args, **kwargs):
-        todo = Todo(description=command.description,)
+    def __call__(self, request: CreateTodoCommand, *args, **kwargs):
+        todo = Todo(description=request.description, )
         self._repository.save(todo)
         return todo
