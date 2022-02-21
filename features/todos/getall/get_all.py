@@ -12,7 +12,7 @@ class GetAllTodosQuery:
 
 
 class GetAllTodosHandler(Handler[GetAllTodosQuery]):
-    def __call__(self, command: GetAllTodosQuery, *args, **kwargs):
+    def __call__(self, request: GetAllTodosQuery, *args, **kwargs):
         return Todo.objects.all()
 
 

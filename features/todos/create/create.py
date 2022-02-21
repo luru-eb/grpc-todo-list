@@ -13,8 +13,8 @@ class CreateTodoCommand:
 
 
 class CreateTodoHandler(Handler[CreateTodoCommand]):
-    def __call__(self, command: CreateTodoCommand, *args, **kwargs):
-        todo = Todo(description=command.description, )
+    def __call__(self, request: CreateTodoCommand, *args, **kwargs):
+        todo = Todo(description=request.description, )
         todo.save()
         return todo
 

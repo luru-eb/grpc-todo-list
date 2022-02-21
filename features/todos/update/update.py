@@ -15,11 +15,11 @@ class UpdateTodoCommand:
 
 
 class UpdateTodoHandler(Handler[UpdateTodoCommand]):
-    def __call__(self, command: UpdateTodoCommand, *args, **kwargs):
+    def __call__(self, request: UpdateTodoCommand, *args, **kwargs):
         try:
-            todo = Todo.objects.get(pk=command.id)
-            todo.description = command.description
-            if command.is_done:
+            todo = Todo.objects.get(pk=request.id)
+            todo.description = request.description
+            if request.is_done:
                 todo.done()
             todo.save()
             return todo

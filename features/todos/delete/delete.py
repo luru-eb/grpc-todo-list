@@ -12,9 +12,9 @@ class DeleteTodoCommand:
 
 
 class DeleteTodoHandler(Handler[DeleteTodoCommand]):
-    def __call__(self, command: DeleteTodoCommand, *args, **kwargs):
+    def __call__(self, request: DeleteTodoCommand, *args, **kwargs):
         try:
-            todo = Todo.objects.get(pk=command.id)
+            todo = Todo.objects.get(pk=request.id)
             todo.delete()
             return todo
         except Todo.DoesNotExist:
