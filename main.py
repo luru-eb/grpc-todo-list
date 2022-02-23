@@ -13,12 +13,12 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     logging.log(logging.INFO, 'Starting todos application...')
 
-    from features.todos.todos_server import TodosServer
+    from usecases.todos.todos_server import TodosServer
     from foundations.mediator.mediator import Mediator
-    from features.todos.create.create import CreateTodoModule
-    from features.todos.delete.delete import DeleteTodoModule
-    from features.todos.getall.get_all import GetAllTodosModule
-    from features.todos.update.update import UpdateTodoModule
+    from usecases.todos.create.create import CreateTodoModule
+    from usecases.todos.delete.delete import DeleteTodoModule
+    from usecases.todos.getall.get_all import GetAllTodosModule
+    from usecases.todos.update.update import UpdateTodoModule
 
     container = Injector([
         CreateTodoModule(),

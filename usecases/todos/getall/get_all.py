@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from injector import Module, provider
 
 from foundations.mediator.mediator import Handler
-from features.todos.models import Todo
+from usecases.todos.models import Todo
 
 
 @dataclass(frozen=True)

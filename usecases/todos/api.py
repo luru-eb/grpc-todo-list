@@ -1,12 +1,12 @@
 import grpc
 from injector import inject
 
-from features.todos.create.create import CreateTodoCommand
-from features.todos.delete.delete import DeleteTodoCommand
-from features.todos.getall.get_all import GetAllTodosQuery
-from features.todos.update.update import UpdateTodoCommand
-from features.todos.todos_pb2 import Todo, TodoList, Empty
-from features.todos import todos_pb2_grpc
+from usecases.todos.create.create import CreateTodoCommand
+from usecases.todos.delete.delete import DeleteTodoCommand
+from usecases.todos.getall.get_all import GetAllTodosQuery
+from usecases.todos.update.update import UpdateTodoCommand
+from usecases.todos.todos_pb2 import Todo, TodoList, Empty
+from usecases.todos import todos_pb2_grpc
 from foundations.mediator.mediator import Mediator
 
 
